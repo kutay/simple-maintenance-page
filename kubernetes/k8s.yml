@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: maintenance-page
+  labels:
+    app: maintenance-page
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: maintenance-page
+  template:
+    metadata:
+      labels:
+        app: maintenance-page
+    spec:
+      containers:
+        - name: maintenance-page
+          image: "orkhonfr/simple-maintenance-page"
+          ports:
+            - containerPort: 80
